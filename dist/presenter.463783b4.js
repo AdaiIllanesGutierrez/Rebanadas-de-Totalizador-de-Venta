@@ -136,10 +136,23 @@ function Mostrar(estado) {
 }
 var _default = Mostrar;
 exports.default = _default;
+},{}],"src/preNeto.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function preNeto(a, b) {
+  return a * b;
+}
+var _default = preNeto;
+exports.default = _default;
 },{}],"src/presenter.js":[function(require,module,exports) {
 "use strict";
 
 var _estado = _interopRequireDefault(require("./estado.js"));
+var _preNeto = _interopRequireDefault(require("./preNeto.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var first = document.querySelector("#item");
 var div = document.querySelector("#resultado");
@@ -148,9 +161,13 @@ var estado = document.querySelector("#estado");
 var itempre = document.querySelector("#precioitem");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  div.innerHTML = "cantidad de items " + first.value + " precio item " + itempre.value + " porcentaje: " + (0, _estado.default)(estado.value);
+  var firstnumber = Number.parseInt(first.value);
+  var secondnumber = Number.parseInt(itempre.value);
+  div.innerHTML = "PRECIO NETO: " + (0, _preNeto.default)(firstnumber, secondnumber);
+
+  //div.innerHTML = "cantidad de items " + first.value+ " precio item "+ itempre.value+" porcentaje: " + Mostrar(estado.value) ;
 });
-},{"./estado.js":"src/estado.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./estado.js":"src/estado.js","./preNeto.js":"src/preNeto.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
