@@ -121,9 +121,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var first = document.querySelector("#item");
 var div = document.querySelector("#resultado");
 var form = document.querySelector("#items-form");
+var itempre = document.querySelector("#precioitem");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  div.innerHTML = "<p>" + first.value + "</p>";
+  div.innerHTML = "cantidad de items " + first.value + " precio item " + itempre.value;
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
