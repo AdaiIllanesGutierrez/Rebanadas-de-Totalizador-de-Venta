@@ -117,16 +117,40 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/presenter.js":[function(require,module,exports) {
+})({"src/estado.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function Mostrar(estado) {
+  var estados = {
+    "ut": 6.65 / 100,
+    "nv": 8.00 / 100,
+    "tx": 6.25 / 100,
+    "al": 4.00 / 100,
+    "ca": 8.25 / 100
+  };
+  return estados[estado];
+}
+var _default = Mostrar;
+exports.default = _default;
+},{}],"src/presenter.js":[function(require,module,exports) {
+"use strict";
+
+var _estado = _interopRequireDefault(require("./estado.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var first = document.querySelector("#item");
 var div = document.querySelector("#resultado");
 var form = document.querySelector("#items-form");
+var estado = document.querySelector("#estado");
 var itempre = document.querySelector("#precioitem");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  div.innerHTML = "cantidad de items " + first.value + " precio item " + itempre.value;
+  div.innerHTML = "cantidad de items " + first.value + " precio item " + itempre.value + " porcentaje: " + (0, _estado.default)(estado.value);
 });
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./estado.js":"src/estado.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
