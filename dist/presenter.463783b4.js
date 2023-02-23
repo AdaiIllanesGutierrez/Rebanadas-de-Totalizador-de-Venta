@@ -148,11 +148,40 @@ function preNeto(a, b) {
 }
 var _default = preNeto;
 exports.default = _default;
+},{}],"src/desporcentaje.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function porcentaje(preneto) {
+  //const estados = {"ut" : 6.65/100,"nv": 8.00/100,"tx":6.25/100,"al":4.00/100,"ca":8.25/100 };
+
+  if (preneto < 1000) {
+    return 0;
+  }
+  if (preneto >= 1000 && preneto < 3000) {
+    return 3 / 100;
+  }
+  if (preneto >= 3000 && preneto < 7000) {
+    return 5 / 100;
+  }
+  if (preneto >= 7000 && preneto < 10000) {
+    return 10 / 100;
+  }
+  if (preneto >= 10000 && preneto < 30000) {
+    return 15 / 100;
+  }
+}
+var _default = porcentaje;
+exports.default = _default;
 },{}],"src/presenter.js":[function(require,module,exports) {
 "use strict";
 
 var _estado = _interopRequireDefault(require("./estado.js"));
 var _preNeto = _interopRequireDefault(require("./preNeto.js"));
+var _desporcentaje = _interopRequireDefault(require("./desporcentaje.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var first = document.querySelector("#item");
 var div = document.querySelector("#resultado");
@@ -166,14 +195,15 @@ form.addEventListener("submit", function (event) {
   event.preventDefault();
   var firstnumber = Number.parseInt(first.value);
   var secondnumber = Number.parseInt(itempre.value);
-  div.innerHTML = "PRECIO NETO: " + (0, _preNeto.default)(firstnumber, secondnumber);
-  div2.innerHTML = "DESCUENTO: ";
+  var prNeto = (0, _preNeto.default)(firstnumber, secondnumber);
+  div.innerHTML = "PRECIO NETO: " + prNeto;
+  div2.innerHTML = "DESCUENTO (" + (0, _desporcentaje.default)(prNeto) * 100 + " %) : " + (0, _desporcentaje.default)(prNeto) * prNeto;
   div3.innerHTML = "IMPUESTO PARA " + estado.value + " : " + (0, _estado.default)(estado.value) * (0, _preNeto.default)(firstnumber, secondnumber);
   var total = (0, _estado.default)(estado.value) * (0, _preNeto.default)(firstnumber, secondnumber) + (0, _preNeto.default)(firstnumber, secondnumber);
   div4.innerHTML = "PRECIO TOTAL DESCUENTO MAS IMPUESTO: " + total;
   //div.innerHTML = "cantidad de items " + first.value+ " precio item "+ itempre.value+" porcentaje: " + Mostrar(estado.value) ;
 });
-},{"./estado.js":"src/estado.js","./preNeto.js":"src/preNeto.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./estado.js":"src/estado.js","./preNeto.js":"src/preNeto.js","./desporcentaje.js":"src/desporcentaje.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

@@ -1,5 +1,6 @@
 import Mostrar from "./estado.js"
 import preNeto from "./preNeto.js"
+import porcentaje from "./desporcentaje.js";
 
 const first = document.querySelector("#item");
 const div = document.querySelector("#resultado");
@@ -14,8 +15,10 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const firstnumber=Number.parseInt(first.value);
   const secondnumber=Number.parseInt(itempre.value);
- div.innerHTML="PRECIO NETO: "+ preNeto(firstnumber,secondnumber);
- div2.innerHTML="DESCUENTO: ";
+  const prNeto=preNeto(firstnumber,secondnumber)
+ div.innerHTML="PRECIO NETO: "+ prNeto;
+ div2.innerHTML="DESCUENTO ("+ porcentaje(prNeto)*100 +" %) : " + porcentaje(prNeto)*prNeto ;
+
  div3.innerHTML="IMPUESTO PARA "+estado.value + " : "+ Mostrar(estado.value)*preNeto(firstnumber,secondnumber);
  const total=(Mostrar(estado.value)*preNeto(firstnumber,secondnumber))+preNeto(firstnumber,secondnumber);
  div4.innerHTML="PRECIO TOTAL DESCUENTO MAS IMPUESTO: "+ total;
