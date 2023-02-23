@@ -158,13 +158,18 @@ var first = document.querySelector("#item");
 var div = document.querySelector("#resultado");
 var form = document.querySelector("#items-form");
 var estado = document.querySelector("#estado");
+var div2 = document.querySelector("#resultado2");
+var div3 = document.querySelector("#resultado3");
+var div4 = document.querySelector("#resultado4");
 var itempre = document.querySelector("#precioitem");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   var firstnumber = Number.parseInt(first.value);
   var secondnumber = Number.parseInt(itempre.value);
   div.innerHTML = "PRECIO NETO: " + (0, _preNeto.default)(firstnumber, secondnumber);
-
+  div2.innerHTML = "DESCUENTO: ";
+  div3.innerHTML = "IMPUESTO PARA " + estado.value + " : " + (0, _estado.default)(estado.value) * (0, _preNeto.default)(firstnumber, secondnumber);
+  div4.innerHTML = "PRECIO TOTAL DESCUENTO MAS IMPUESTO: ";
   //div.innerHTML = "cantidad de items " + first.value+ " precio item "+ itempre.value+" porcentaje: " + Mostrar(estado.value) ;
 });
 },{"./estado.js":"src/estado.js","./preNeto.js":"src/preNeto.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

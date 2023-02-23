@@ -5,7 +5,9 @@ const first = document.querySelector("#item");
 const div = document.querySelector("#resultado");
 const form = document.querySelector("#items-form");
 const estado = document.querySelector("#estado");
-
+const div2 = document.querySelector("#resultado2");
+const div3 = document.querySelector("#resultado3");
+const div4 = document.querySelector("#resultado4");
 const itempre=document.querySelector("#precioitem");
 
 form.addEventListener("submit", (event) => {
@@ -13,7 +15,9 @@ form.addEventListener("submit", (event) => {
   const firstnumber=Number.parseInt(first.value);
   const secondnumber=Number.parseInt(itempre.value);
  div.innerHTML="PRECIO NETO: "+ preNeto(firstnumber,secondnumber);
-
+ div2.innerHTML="DESCUENTO: ";
+ div3.innerHTML="IMPUESTO PARA "+estado.value + " : "+ Mostrar(estado.value)*preNeto(firstnumber,secondnumber);
+ div4.innerHTML="PRECIO TOTAL DESCUENTO MAS IMPUESTO: ";
   //div.innerHTML = "cantidad de items " + first.value+ " precio item "+ itempre.value+" porcentaje: " + Mostrar(estado.value) ;
   
 });
