@@ -199,7 +199,7 @@ form.addEventListener("submit", function (event) {
   div.innerHTML = "PRECIO NETO: " + prNeto;
   div2.innerHTML = "DESCUENTO (" + (0, _desporcentaje.default)(prNeto) * 100 + " %) : " + (0, _desporcentaje.default)(prNeto) * prNeto;
   div3.innerHTML = "IMPUESTO PARA " + estado.value + " : " + (0, _estado.default)(estado.value) * (0, _preNeto.default)(firstnumber, secondnumber);
-  var total = (0, _estado.default)(estado.value) * (0, _preNeto.default)(firstnumber, secondnumber) + (0, _preNeto.default)(firstnumber, secondnumber);
+  var total = (0, _estado.default)(estado.value) * (0, _preNeto.default)(firstnumber, secondnumber) + (0, _preNeto.default)(firstnumber, secondnumber) - (0, _desporcentaje.default)(prNeto) * prNeto;
   div4.innerHTML = "PRECIO TOTAL DESCUENTO MAS IMPUESTO: " + total;
   //div.innerHTML = "cantidad de items " + first.value+ " precio item "+ itempre.value+" porcentaje: " + Mostrar(estado.value) ;
 });

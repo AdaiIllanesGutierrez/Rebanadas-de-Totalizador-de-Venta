@@ -20,7 +20,7 @@ form.addEventListener("submit", (event) => {
  div2.innerHTML="DESCUENTO ("+ porcentaje(prNeto)*100 +" %) : " + porcentaje(prNeto)*prNeto ;
 
  div3.innerHTML="IMPUESTO PARA "+estado.value + " : "+ Mostrar(estado.value)*preNeto(firstnumber,secondnumber);
- const total=(Mostrar(estado.value)*preNeto(firstnumber,secondnumber))+preNeto(firstnumber,secondnumber);
+ const total=((Mostrar(estado.value)*preNeto(firstnumber,secondnumber))+preNeto(firstnumber,secondnumber))-(porcentaje(prNeto)*prNeto);
  div4.innerHTML="PRECIO TOTAL DESCUENTO MAS IMPUESTO: "+ total;
   //div.innerHTML = "cantidad de items " + first.value+ " precio item "+ itempre.value+" porcentaje: " + Mostrar(estado.value) ;
   
