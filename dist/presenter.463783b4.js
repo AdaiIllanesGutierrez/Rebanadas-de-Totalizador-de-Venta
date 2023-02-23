@@ -169,7 +169,8 @@ form.addEventListener("submit", function (event) {
   div.innerHTML = "PRECIO NETO: " + (0, _preNeto.default)(firstnumber, secondnumber);
   div2.innerHTML = "DESCUENTO: ";
   div3.innerHTML = "IMPUESTO PARA " + estado.value + " : " + (0, _estado.default)(estado.value) * (0, _preNeto.default)(firstnumber, secondnumber);
-  div4.innerHTML = "PRECIO TOTAL DESCUENTO MAS IMPUESTO: ";
+  var total = (0, _estado.default)(estado.value) * (0, _preNeto.default)(firstnumber, secondnumber) + (0, _preNeto.default)(firstnumber, secondnumber);
+  div4.innerHTML = "PRECIO TOTAL DESCUENTO MAS IMPUESTO: " + total;
   //div.innerHTML = "cantidad de items " + first.value+ " precio item "+ itempre.value+" porcentaje: " + Mostrar(estado.value) ;
 });
 },{"./estado.js":"src/estado.js","./preNeto.js":"src/preNeto.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
